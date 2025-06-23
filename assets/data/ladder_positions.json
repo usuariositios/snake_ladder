@@ -1,0 +1,8 @@
+[{"nombreLadder":"Ladder 1","ubicIni":99,"ubicFin":58,"pasos":7},
+{"nombreLadder":"Ladder 2","ubicIni":42,"ubicFin":21,"pasos":7},
+{"nombreLadder":"Ladder 3","ubicIni":14,"ubicFin":4,"pasos":9},
+{"nombreLadder":"Ladder 4","ubicIni":65,"ubicFin":28,"pasos":12},
+{"nombreLadder":"Ladder 5","ubicIni":92,"ubicFin":71,"pasos":5},
+{"nombreLadder":"Ladder 6","ubicIni":30,"ubicFin":8,"pasos":5}
+
+]

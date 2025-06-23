@@ -1,0 +1,7 @@
+[{"nombreSnake":"Snake 1","ubicIni":62,"ubicFin":18,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 2","ubicIni":97,"ubicFin":78,"assets": "assets/images/snake_minus.svg"},
+{"nombreSnake":"Snake 3","ubicIni":95,"ubicFin":56,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":88,"ubicFin":24,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":36,"ubicFin":6,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":32,"ubicFin":11,"assets": "assets/images/snake_minus.svg"}
+]
