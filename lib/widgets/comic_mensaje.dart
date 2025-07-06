@@ -27,17 +27,24 @@ class ComicMensaje extends StatelessWidget {
      
     Offset offset1 = offset;
     final screenSize = MediaQuery.of(context).size;
-    if(offset.dx+200>screenSize.width){//para controlar que no sobrepase el screen hacia la derecha
-      offset1 = Offset(offset1.dx -200, offset.dy) ;
+    if(offset1.dx -200<0){//para controlar que no sobrepase el screen hacia la izquierda
+      offset1 = Offset(0, offset.dy) ;
     }
+    else if(offset.dx+200>screenSize.width){//para controlar que no sobrepase el screen hacia la derecha
+      offset1 = Offset(offset1.dx -200, offset.dy) ;
+    } 
     
 
 
 
 
-    return Positioned(
+    return 
+    Stack(
+      clipBehavior: Clip.none,
+      children: [
+Positioned(
       left: offset1.dx,
-      top: offset1.dy,
+      top: offset1.dy,      
       child: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -84,11 +91,15 @@ class ComicMensaje extends StatelessWidget {
                         ),
                       ),
                     ),
-          ),
-          Positioned(
-            top: 0,
-            left: piquitoIzquierda ? 10 : null,
-            right: piquitoIzquierda ? null : 10,
+                ),
+          
+        ],
+      ),
+    )
+        /*,
+        Positioned(
+            left: offset.dx-20,            
+            top: offset.dy,//relativo al Positioned padre            
             child: Transform.rotate(
               angle: 45 * pi / 180,
               child: Container(
@@ -97,9 +108,9 @@ class ComicMensaje extends StatelessWidget {
                 color: color,
               ),
             ),
-          ),
-        ],
-      ),
+          ),*/
+      ],
     );
+    
   }
 }

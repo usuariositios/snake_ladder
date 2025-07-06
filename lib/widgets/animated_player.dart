@@ -14,7 +14,7 @@ class AnimatePlayerController extends GetxController with GetTickerProviderState
   late int indiceActual;
   late Rx<Offset> posicion;
   late int indiceAnimacion = 0;
-  var mensajeList = <Mensaje>[].obs;
+  RxList<Mensaje> mensajeList = <Mensaje>[].obs;
   int swMostrarMensaje = 0;//sw que indica que se mostrara el mensaje comic
   String mensaje = "";
 
@@ -36,10 +36,12 @@ _animation = CurvedAnimation(//definicion de la animacion
     _animation.addListener(() {//monitorea la lista y cada salto
       
       if (ruta.isEmpty || indiceActual >= ruta.length-1){//llegan varios estados de la animacion
-        indiceAnimacion++;        
-        if(indiceAnimacion>=12){//llegan 12 animaciones finalizadas
+        indiceAnimacion++;
+        //print('indiceAnimacion $indiceAnimacion  $swMostrarMensaje ');
+        if(indiceAnimacion>=11){//llegan 12 animaciones finalizadas
           if(swMostrarMensaje==1)
-            { mostrarMensaje(texto: mensaje, offset: ruta[indiceActual]);
+            {
+              mostrarMensaje(texto: mensaje, offset: ruta[indiceActual]);
               swMostrarMensaje = 0;
             }
           indiceAnimacion = 0;

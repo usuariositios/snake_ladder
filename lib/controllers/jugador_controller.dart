@@ -24,7 +24,7 @@ class JugadorController extends GetxController {
   }
 
   void agregarJugador(Jugador jugador) {
-    jugadores.add(jugador);
+    jugadores.add(jugador);//aqui se agrega a la lista
     guardar();
   }
 

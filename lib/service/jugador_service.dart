@@ -9,6 +9,7 @@ class JugadorService {
 
   Future<List<Jugador>> cargarJugadores() async {    
     String? jsonString = gets.read(_key);
+    print(' el disco $jsonString');
     if (jsonString == null) {
       // Primera vez: cargar de assets
       jsonString = await rootBundle.loadString('assets/data/jugadores.json');
@@ -20,6 +21,6 @@ class JugadorService {
 
   Future<void> guardarJugadores(List<Jugador> jugadores) async {
     final jsonString = jsonEncode(jugadores.map((j) => j.toJson()).toList());
-    await gets.write(_key, jsonString);
+    await gets.write(_key, jsonString);//guarda toda la lista
   }
 }

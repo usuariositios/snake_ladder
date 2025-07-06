@@ -75,8 +75,8 @@ class _AnimatedDiceState extends State<AnimatedDice>
             return Transform.rotate(
               angle: _animation.value,
               child: Container(
-                width: 55,
-                height: 55,
+                width: 70,
+                height: 70,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(),

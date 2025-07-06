@@ -73,20 +73,21 @@ void initState() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Snake & Ladder GetX')),
+      appBar: AppBar(title: const Text('')),
       body: 
       Column(
           children: [
+            //const SizedBox(height: 40),
             Expanded(child: 
       Stack(
         children: [
           // 🧱 Grid de casillas
+          
           GridView.builder(
-            padding: const EdgeInsets.all(20),
+            //padding: const EdgeInsets.all(20),
             itemCount: controller.boardSize,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 10,
-
+              crossAxisCount: 10,//numero de casillas a la horizontal y vertical
             ),
             itemBuilder: (context, index) {
               //final tileNumber = 100 - index;
@@ -94,12 +95,14 @@ void initState() {
                 key: controller.tileKeys[index],
                 decoration: BoxDecoration(
                   //border: Border.all(color: Colors.grey),
-                  color: controller.indiceList[index].color
+                  color: controller.indiceList[index].color                  
                 ),
-                child: Center(child: Text('${controller.indiceList[index].indice}',style: TextStyle(color: Colors.white,))),//$tileNumber controller.indiceList[index]
+                child: Center(child: Text('${controller.indiceList[index].indice}',style: TextStyle(color: Colors.white,)),),//$tileNumber controller.indiceList[index]
+                
               );
             },
           ),
+          
 
           // 🎯 Dibujo personalizado (jugadores, serpientes, escaleras)
           /*Obx(() {
@@ -279,7 +282,9 @@ void initState() {
                         offset: msg.offset,
                         color: msg.color,
                         piquitoIzquierda: msg.piquitoIzquierda,
-                        onCerrar: () => apController.mensajeList.remove(msg),
+                        onCerrar: () {
+                          controller.cerrarMensaje(msg);
+                                       },
                       ))
                   .toList(),
             );
@@ -288,26 +293,34 @@ void initState() {
         ],
        ),
       ),
-      Obx(() { return 
-      Text('Turno ${controller.turnoPlayerx}');
+      /*Obx(() { return 
+
+      Text('(Turno de ${controller.playersList[controller.turnoPlayerx.value].nombre})');
+
+
       })
-      ,
-       
-                
+      ,*/
+      
+        Obx(() =>
+        AbsorbPointer(
+          absorbing: controller.disableDice.value,
+          child:
+          
         AnimatedDice(
           onRolled: (value) {//devuelve el valor
             //controller.actualizaPosicion(value);
             //await Future.delayed(Duration(milliseconds: 100)); // pequeña pausa entre saltos
-
+            apController.mensajeList.clear();
             controller.iniciarSalto(value);//para el player2
             
             //controller.numberDice.value += value;
             //controller.player1.value.numUbic += value;
             //print('posicion player : ${controller.player1.value.numUbic}');
           },
-        )
-
-      
+        )        
+        ),                
+      ),
+      SizedBox(height: 40),
         
       ]),
       

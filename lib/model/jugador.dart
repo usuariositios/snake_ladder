@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snake_ladder1/utils/Utils.dart';
 
 class Jugador {
   String nombre;
@@ -14,8 +15,8 @@ class Jugador {
       nombre: json['nombre'],
       edad: json['edad'],
       numCaja: json['numCaja'],
-      nombreColorJugador: json['colorJugador'],
-      colorJugador:Colors.white
+      nombreColorJugador: json['nombreColorJugador'],
+      colorJugador:Utils.obtenerColorNombre(json['nombreColorJugador'])
     );
   }
 
@@ -24,7 +25,7 @@ class Jugador {
       'nombre': nombre,
       'edad': edad,
       'numCaja': numCaja,
-      'colorJugador': nombreColorJugador
+      'nombreColorJugador': nombreColorJugador
     };
   }
 }

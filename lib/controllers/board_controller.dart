@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:snake_ladder1/controllers/jugador_controller.dart';
 import 'package:snake_ladder1/model/LadderPositions.dart';
-import 'package:snake_ladder1/model/Mensaje.dart';
+
 import 'package:snake_ladder1/model/Positions.dart';
 import 'package:snake_ladder1/model/Snake.dart';
 import 'package:snake_ladder1/model/SnakePositions.dart';
@@ -13,7 +13,7 @@ import 'package:snake_ladder1/model/players.dart';
 import 'package:snake_ladder1/model/preguntas_juego.dart';
 import 'package:snake_ladder1/service/service.dart';
 import 'package:snake_ladder1/widgets/animated_player.dart';
-import 'dart:math';
+
 
 import 'package:snake_ladder1/widgets/casilla.dart';
 
@@ -35,7 +35,7 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
   RxInt numberDice2 = 1.obs;  //valor del dice de la cajita
   Rx<Players> player1 = Players().obs;//falta
   Rx<Players> player2 = Players().obs;//falta
-  Players playerx = Players();//falta
+  Rx<Players> playerx = Players().obs;//falta
   RxInt turnoPlayerx = 0.obs;//tiene que ir rotando el turno
 
   RxList<Players> playersList = <Players>[].obs;//List.generate(8, (_)=>Players()).obs;//relacionar jugadoresController.jugadores con la lista
@@ -66,6 +66,10 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
 
   List<PreguntasJuego> preguntasJuegoList=[];
   int indicePreguntaJuego = 0;
+  RxBool disableDice = false.obs;
+  RxBool hideMessage = false.obs;
+  
+
 
 
   
@@ -88,11 +92,10 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
     print('longitud lista ${jugadorController.jugadores.length}' );
     playersList = List.generate(jugadorController.jugadores.length, (_)=>Players()).obs;//relacionar jugadoresController.jugadores con la lista
     for(int i=0;i<jugadorController.jugadores.length;i++ ){
-      playersList[i].colorPlayers = jugadorController.jugadores[i].nombreColorJugador;
-
+      playersList[i].colorPlayers = jugadorController.jugadores[i].nombreColorJugador;//asignacion de colores
+      playersList[i].nombre = jugadorController.jugadores[i].nombre;
+      jugadorController.jugadores[i].numCaja = 1; //reseteamos la caja
     }
-    
-    
 
   }
 
@@ -163,8 +166,8 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
     }*/
     for(var i = 0; i< jugadorController.jugadores.length;i++){//tomar en cuenta el turno desde 0 (depende de los jugadores)
       if(i==turnoPlayerx.value){
-        print('es turno de $i');
-        playerx = playersList[i];//coloca la ubicacion
+        //print('es turno de $i');
+        playerx.value = playersList[i];//coloca la ubicacion
         numberDice.value = jugadorController.jugadores[i].numCaja;
         break;
       }
@@ -179,7 +182,7 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
     
     
     ruta = [];
-    ruta.add(playerx.posicion.value);//es que es rx (colocamos la posicion inicial)
+    ruta.add(playerx.value.posicion.value);//es que es rx (colocamos la posicion inicial)
     for(var i= start;i<start+numUbicFin;i++ ){
         numberDice.value += 1;
         ruta.add(getTilePosition1(numberDice.value));
@@ -220,6 +223,29 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
       turnoPlayerx.value=1; 
     }*/
 
+    
+
+  
+
+    //ruta = nuevaRuta;
+      indiceActual = 0;//resetea la posicion actual
+    //if (ruta.length >= 2) {// al menos 2 posiciones
+      playerx.value.posicion.value = ruta[0];//comienza la posicion ya que en el array esta la posicion inicial para saltar
+      
+      apController.ruta = ruta;
+      apController.indiceActual = indiceActual;
+      apController.posicion = playerx.value.posicion;//se actualiza esta posicion con el otro controlador
+
+
+      apController.swMostrarMensaje=1;//para mostrar la pregunta
+      indicePreguntaJuego++;
+      apController.mensaje="${playersList[turnoPlayerx.value].nombre}  \n \"${preguntasJuegoList[indicePreguntaJuego].tituloPregunta}\" \n ${preguntasJuegoList[indicePreguntaJuego].pregunta}";
+      
+      
+      disableDice.value = true;//disable dice
+
+
+      //rutina para al siguiente turno
     for(var i = 0; i< jugadorController.jugadores.length;i++){//tomar en cuenta el turno desde 0
       if(i==turnoPlayerx.value){        
         jugadorController.jugadores[i].numCaja = numberDice.value;
@@ -231,24 +257,10 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
       }
     }
 
-  
-
-    //ruta = nuevaRuta;
-      indiceActual = 0;//resetea la posicion actual
-    //if (ruta.length >= 2) {// al menos 2 posiciones
-      playerx.posicion.value = ruta[0];//comienza la posicion ya que en el array esta la posicion inicial para saltar
-      
-      apController.ruta = ruta;
-      apController.indiceActual = indiceActual;
-      apController.posicion = playerx.posicion;//se actualiza esta posicion con el otro controlador
-
-
-      apController.swMostrarMensaje=1;//para mostrar la pregunta
-      indicePreguntaJuego++;
-      apController.mensaje="Tu reto es... \n ${preguntasJuegoList[indicePreguntaJuego].tituloPregunta} \n ${preguntasJuegoList[indicePreguntaJuego].pregunta}";
+    
 
       apController.mover();
-
+      
 
       
 
@@ -257,6 +269,28 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
       //animController.reset();//detiene la animacion
       //animController.forward();//empieza la animacion
     //}
+  }
+
+  void cerrarMensaje( var msg ){
+    apController.mensajeList.remove(msg);
+    disableDice.value=false;  
+    Get.snackbar(
+          '',
+          '' ,
+          icon: Image.asset(
+            'assets/images/player_${playersList[turnoPlayerx.value].colorPlayers}.png',
+            width: 30,
+            height: 30,
+          ),
+          snackPosition: SnackPosition.BOTTOM,
+          messageText: Center(
+          child: Text('Turno de ${playersList[turnoPlayerx.value].nombre}',),
+          ),
+          
+          
+
+    );
+
   }
 
  

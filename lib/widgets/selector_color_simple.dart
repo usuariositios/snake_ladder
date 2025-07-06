@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snake_ladder1/utils/Utils.dart';
 
 typedef OnSeleccionar = void Function(String nombreColor, Color color);//funcion que se invocara fuera del widget
 
@@ -21,7 +22,7 @@ class SelectorColorSimple extends StatelessWidget {
       spacing: 8,
       children: colores.map((color) {
         return GestureDetector(
-          onTap: () => onSeleccionar(obtenerNombreColor(color),color),
+          onTap: () => onSeleccionar(Utils.obtenerNombreColor(color),color),
           child: Container(
             width: 40,
             height: 40,
@@ -35,39 +36,7 @@ class SelectorColorSimple extends StatelessWidget {
       }).toList(),
     );
   }
-String obtenerNombreColor(Color color) {
-  Map<Color, String> coloresMaterial = {
-    Colors.red: 'red',
-    Colors.pink: 'pink',
-    Colors.purple: 'purple',
-    Colors.deepPurple: 'deepPurple',
-    Colors.indigo: 'indigo',
-    Colors.blue: 'blue',
-    Colors.lightBlue: 'lightBlue',
-    Colors.cyan: 'cyan',
-    Colors.teal: 'teal',
-    Colors.green: 'green',
-    Colors.lightGreen: 'lightGreen',
-    Colors.lime: 'lime',
-    Colors.yellow: 'yellow',
-    Colors.amber: 'amber',
-    Colors.orange: 'orange',
-    Colors.deepOrange: 'deepOrange',
-    Colors.brown: 'brown',
-    Colors.grey: 'grey',
-    Colors.blueGrey: 'blueGrey',
-    Colors.black: 'black',
-    Colors.white: 'white',
-  };
 
-  for (var entry in coloresMaterial.entries) {
-    if (entry.key.value == color.value) {
-      return entry.value;
-    }
-  }
-
-  return 'desconocido'; // si no se encuentra coincidencia exacta
-}
 
 }
 
