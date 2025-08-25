@@ -153,3 +153,24 @@ _animation = CurvedAnimation(//definicion de la animacion
       });
   }
 }
+
+
+
+Image.asset(
+                                    'assets/images/user.png',
+                                      width: screenAnc *0.1,
+                                      height: screenAnc *0.1,                                    
+                          
+                                    ),
+									
+Image.asset(
+                                    'assets/images/user.png',
+                                      width: screenAnc *0.1,
+                                      height: screenAnc *0.1,                                    
+                          
+                                    ),
+									
+boardController.numFicha.value==0?4.0:
+boardController.numFicha.value==1?4.0:
+fontWeight: FontWeight.bold,
+fontWeight: FontWeight.bold,

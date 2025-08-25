@@ -320,7 +320,7 @@ void initState() {
         )        
         ),                
       ),
-      SizedBox(height: 40),
+      SizedBox(height: 90),
         
       ]),
       
@@ -356,3 +356,46 @@ class BoardPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
+
+
+Center(
+            child: ElevatedButton(
+              onPressed: () {
+                boardController.moverFicha_action();
+                
+              },
+              child: const Text('¡Presióname!'),
+            ),
+          ),
+
+		  
+// Crear bubble encima de la ficha
+    bubble = TextComponent(
+      text: '¡Hola!',
+      textRenderer: TextPaint(
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 14,
+          backgroundColor: Colors.white
+        ),
+      ),
+    )
+    ..position = ficha.position + Vector2(0, -20)
+    ..anchor = Anchor.bottomLeft;
+
+    add(bubble);
+	
+Positioned(
+            top: boardController.mapPosCeldas[1]!.dy-screenAlt*0.0749,
+            left:boardController.mapPosCeldas[1]!.dx,
+            child: 
+              Bubble(
+                margin: BubbleEdges.all(10),
+                nip: BubbleNip.leftBottom,
+                color: Colors.white,
+                child: Text(
+                  '¡Hola, soy un mensaje estilo cómic!',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+          ),    

@@ -311,13 +311,11 @@ class BoardController extends GetxController    { //with GetTickerProviderStateM
   }
 
    Future<void> cargarArchivosJson() async {
-    snakePositionsList.assignAll(await Service.cargarSnakePosiciones('assets/data/snake_positions.json'));
-    ladderPositionsList.assignAll(await Service.cargarLadderPosiciones('assets/data/ladder_positions.json'));
+    snakePositionsList.assignAll(await Service.cargarSnakePositions('assets/data/snake_positions.json','3'));
+    //ladderPositionsList.assignAll(await Service.cargarLadderPosiciones('assets/data/ladder_positions.json'));
+    ladderPositionsList.assignAll(await Service.cargarLadderPositions('assets/data/ladder_positions.json','3'));
     preguntasJuegoList = await Service.cargarPreguntasLocal('assets/data/preguntas_es.json');
     preguntasJuegoList.shuffle();
-    
-
-
 
    }
 

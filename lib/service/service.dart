@@ -37,7 +37,7 @@ Future<void> fetchData(int questionIndex, bool answer) async {
 
   static Future<List<SnakePositions>> cargarSnakePosiciones(String nomArchivo) async {
     final String contenido = await rootBundle.loadString(nomArchivo);
-    final List<dynamic> jsonData = jsonDecode(contenido);
+    final List<dynamic> jsonData = jsonDecode(contenido);//aqui parsea
     return jsonData.map((item) => SnakePositions.fromJson(item)).toList();
   }
 
@@ -45,6 +45,21 @@ Future<void> fetchData(int questionIndex, bool answer) async {
     final String contenido = await rootBundle.loadString(nomArchivo);
     final List<dynamic> jsonData = jsonDecode(contenido);
     return jsonData.map((item) => LadderPositions.fromJson(item)).toList();
+  }
+
+
+  static Future<List<LadderPositions>> cargarLadderPositions(String nomArchivo,String posicion) async {
+  final String response = await rootBundle.loadString(nomArchivo);
+  final data = await json.decode(response);  
+  List<dynamic> jsonData = data['LadderPositions$posicion'];  
+  return jsonData.map((item) => LadderPositions.fromJson(item)).toList();
+  }
+
+  static Future<List<SnakePositions>> cargarSnakePositions(String nomArchivo,String posicion) async {
+  final String response = await rootBundle.loadString(nomArchivo);
+  final data = await json.decode(response);  
+  List<dynamic> jsonData = data['SnakePositions$posicion'];  
+  return jsonData.map((item) => SnakePositions.fromJson(item)).toList();
   }
 
   static Future<List<PreguntasJuego>> cargarPreguntasLocal(String nomArchivo) async {

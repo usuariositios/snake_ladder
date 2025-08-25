@@ -22,3 +22,4 @@ class LadderPositions {
     return data;
   }
 }
+

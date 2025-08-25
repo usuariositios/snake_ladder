@@ -1,7 +1,81 @@
-[{"nombreSnake":"Snake 1","ubicIni":62,"ubicFin":18,"assets": "assets/images/snake_largo.svg"},
+{
+"SnakePositions1":[{"nombreSnake":"Snake 1","ubicIni":62,"ubicFin":18,"assets": "assets/images/snake_largo.svg"},
 {"nombreSnake":"Snake 2","ubicIni":97,"ubicFin":78,"assets": "assets/images/snake_minus.svg"},
 {"nombreSnake":"Snake 3","ubicIni":95,"ubicFin":56,"assets": "assets/images/snake_mediano.svg"},
 {"nombreSnake":"Snake 4","ubicIni":88,"ubicFin":24,"assets": "assets/images/snake_largo.svg"},
 {"nombreSnake":"Snake 4","ubicIni":36,"ubicFin":6,"assets": "assets/images/snake_mediano.svg"},
 {"nombreSnake":"Snake 4","ubicIni":32,"ubicFin":11,"assets": "assets/images/snake_minus.svg"}
+],
+"SnakePositions2":[
+{"nombreSnake":"Snake 1","ubicIni":16,"ubicFin":4,"assets": "assets/images/snake_minus.svg"},
+{"nombreSnake":"Snake 2","ubicIni":52,"ubicFin":28,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 3","ubicIni":78,"ubicFin":39,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":62,"ubicFin":22,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":74,"ubicFin":18,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":95,"ubicFin":51,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":34,"ubicFin":8,"assets": "assets/images/snake_mediano.svg"}
 ]
+,
+"SnakePositions3":[
+{"nombreSnake":"Snake 1","ubicIni":16,"ubicFin":6,"assets": "assets/images/snake_minus.svg"},
+{"nombreSnake":"Snake 2","ubicIni":49,"ubicFin":11,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 3","ubicIni":62,"ubicFin":19,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":64,"ubicFin":60,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":87,"ubicFin":24,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":93,"ubicFin":73,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":98,"ubicFin":78,"assets": "assets/images/snake_mediano.svg"}
+]
+,
+"SnakePositions4":[
+{"nombreSnake":"Snake 1","ubicIni":27,"ubicFin":5,"assets": "assets/images/snake_minus.svg"},
+{"nombreSnake":"Snake 2","ubicIni":40,"ubicFin":3,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 3","ubicIni":43,"ubicFin":18,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":54,"ubicFin":31,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":66,"ubicFin":45,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":76,"ubicFin":58,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":89,"ubicFin":53,"assets": "assets/images/snake_mediano.svg"}
+]
+,
+"SnakePositions5":[
+{"nombreSnake":"Snake 1","ubicIni":32,"ubicFin":10,"assets": "assets/images/snake_minus.svg"},
+{"nombreSnake":"Snake 2","ubicIni":47,"ubicFin":4,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 3","ubicIni":56,"ubicFin":19,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":64,"ubicFin":36,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":87,"ubicFin":24,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":91,"ubicFin":73,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":99,"ubicFin":42,"assets": "assets/images/snake_mediano.svg"}
+]
+,
+"SnakePositions6":[
+{"nombreSnake":"Snake 1","ubicIni":17,"ubicFin":7,"assets": "assets/images/snake_minus.svg"},
+{"nombreSnake":"Snake 2","ubicIni":45,"ubicFin":22,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 3","ubicIni":52,"ubicFin":29,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":56,"ubicFin":19,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":73,"ubicFin":1,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":84,"ubicFin":58,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":98,"ubicFin":64,"assets": "assets/images/snake_mediano.svg"}
+]
+,
+"SnakePositions7":[
+{"nombreSnake":"Snake 1","ubicIni":34,"ubicFin":12,"assets": "assets/images/snake_minus.svg"},
+{"nombreSnake":"Snake 2","ubicIni":47,"ubicFin":16,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 3","ubicIni":58,"ubicFin":39,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":62,"ubicFin":22,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":83,"ubicFin":19,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":92,"ubicFin":53,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":97,"ubicFin":78,"assets": "assets/images/snake_mediano.svg"}
+]
+,
+"SnakePositions8":[
+{"nombreSnake":"Snake 1","ubicIni":16,"ubicFin":4,"assets": "assets/images/snake_minus.svg"},
+{"nombreSnake":"Snake 2","ubicIni":48,"ubicFin":10,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 3","ubicIni":55,"ubicFin":30,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":63,"ubicFin":18,"assets": "assets/images/snake_mediano.svg"},
+{"nombreSnake":"Snake 4","ubicIni":74,"ubicFin":53,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":85,"ubicFin":39,"assets": "assets/images/snake_largo.svg"},
+{"nombreSnake":"Snake 4","ubicIni":99,"ubicFin":5,"assets": "assets/images/snake_mediano.svg"}
+]
+
+
+}
+
